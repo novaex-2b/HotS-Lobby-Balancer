@@ -1,0 +1,35 @@
+import QmlProject 1.3
+
+Project {
+    mainFile: "Content/App.qml"
+    mainUiFile: "Content/Screen01.ui.qml"
+    targetDirectory: "/opt/LobbyBalancer"
+    qt6Project: true
+    qdsVersion: "4.4"
+    quickVersion: "6.5"
+    importPaths: [ "imports", "." ]
+
+    Environment {
+        QT_QUICK_CONTROLS_CONF: "qtquickcontrols2.conf"
+        QML_DISABLE_DISK_CACHE: "true"
+        QML_XHR_ALLOW_FILE_READ: "1"
+    }
+
+    QmlFiles {
+        directory: "Content"
+    }
+
+    QmlFiles {
+        directory: "imports"
+    }
+
+    Files {
+        filter: "qmldir"
+        directory: "imports"
+    }
+
+    Files {
+        filter: "*.conf"
+        files: ["qtquickcontrols2.conf"]
+    }
+}
